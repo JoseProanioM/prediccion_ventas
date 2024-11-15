@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 @st.cache_data
 def load_data():
     # Replace with the path to your dataset
-    data = pd.read_csv("C:/Users/josep.JOSE/OneDrive/Documents/3. Work/Oikonomics/17. OikoData/DF's/1. Entregable/predicción_ventas.csv", parse_dates=["Periodo"])
+    data = pd.read_csv("https://raw.githubusercontent.com/JoseProanioM/prediccion_ventas/refs/heads/main/predicci%C3%B3n_ventas.csv", parse_dates=["Periodo"])
     return data
 
 # Load data
