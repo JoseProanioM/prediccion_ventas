@@ -26,15 +26,10 @@ selected_prediction = st.selectbox("Seleccionar Tipo de Predicción:", predictio
 filtered_data = ventas_industria_extended[ventas_industria_extended['CIIU_industria'] == selected_ciiu]
 
 # Create the figure
-fig, ax = st.columns(2)
+st.line_chart(filtered_data['ventasTotales'], x=filtered_data['Periodo'], use_container_width=True)
+st.caption("Serie Original")
 
-# Plot the original data
-with ax[0]:
-    st.line_chart(filtered_data['ventasTotales'], x=filtered_data['Periodo'], use_container_width=True)
-    st.caption("Serie Original")
-
-# Plot the forecast based on the selected prediction
-with ax[1]:
+with st.expander("Ver Predicciones"):
     if selected_prediction == "ARIMA":
         st.line_chart(filtered_data['ARIMA_Forecast'], x=filtered_data['Periodo'], use_container_width=True)
         st.caption("Predicción ARIMA")
